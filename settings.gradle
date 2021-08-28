@@ -1,3 +1,5 @@
 rootProject.name = "APT-Sample"
 include ':app'
 include ':apt-annotation'
+include ':apt-processor'
+include ':apt-api'
