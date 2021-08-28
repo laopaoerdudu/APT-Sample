@@ -41,15 +41,12 @@ public class MyViewCreatorProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-        // 从文件中读取控件名称，并转换成对应的集合
-        Set<String> mViewNameSet = readViewNameFromFile();
+        Set<String> mViewNameSet = readViewNameFromLocalFile();
 
-        // 如果获取的控件名称集合为空，则终止流程
         if (mViewNameSet == null || mViewNameSet.isEmpty()) {
             return false;
         }
 
-        // 获取注解使用注解元素
         Set<? extends Element> elementsAnnotatedWith = roundEnv.getElementsAnnotatedWith(ViewCreator.class);
         for (Element element : elementsAnnotatedWith) {
             System.out.println("Hello " + element.getSimpleName() + ", 欢迎使用 APT");
@@ -62,12 +59,9 @@ public class MyViewCreatorProcessor extends AbstractProcessor {
 
     /**
      * 开始执行生成代码的逻辑
-     *
      * @param mViewNameSet 控件名称集合
      */
     private void startGenerateCode(Set<String> mViewNameSet) {
-        System.out.println("开始生成 Java 类...");
-
         ClassName viewType = ClassName.get("android.view", "View");
         MethodSpec.Builder methodBuilder = MethodSpec
                 .methodBuilder("createView")
@@ -116,7 +110,7 @@ public class MyViewCreatorProcessor extends AbstractProcessor {
         }
     }
 
-    private Set<String> readViewNameFromFile() {
+    private Set<String> readViewNameFromLocalFile() {
         try {
             File file = new File("/Users/david/study-code/APT-Sample/viewList.txt");
             Properties properties = new Properties();
