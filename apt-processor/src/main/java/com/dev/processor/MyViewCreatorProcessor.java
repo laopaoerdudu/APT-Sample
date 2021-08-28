@@ -26,6 +26,7 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 
 import static com.dev.processor.ProcessorConstant.APT_GENERATION_PKG;
+import static com.dev.processor.ProcessorConstant.VIEW_LST_PATH;
 
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("com.dev.annotation.ViewCreator")
@@ -59,6 +60,7 @@ public class MyViewCreatorProcessor extends AbstractProcessor {
 
     /**
      * 开始执行生成代码的逻辑
+     *
      * @param mViewNameSet 控件名称集合
      */
     private void startGenerateCode(Set<String> mViewNameSet) {
@@ -77,10 +79,6 @@ public class MyViewCreatorProcessor extends AbstractProcessor {
 
         for (String viewName : mViewNameSet) {
             if (viewName.contains(".")) {
-                //针对包含 . 的控件名称进行处理
-                //分离包名和控件名，如：androidx.constraintlayout.widget.ConstraintLayout
-                //packageName：androidx.constraintlayout.widget
-                //simpleViewName：ConstraintLayout
                 String packageName = viewName.substring(0, viewName.lastIndexOf("."));
                 String simpleViewName = viewName.substring(viewName.lastIndexOf(".") + 1);
                 ClassName returnType = ClassName.get(packageName, simpleViewName);
@@ -112,7 +110,7 @@ public class MyViewCreatorProcessor extends AbstractProcessor {
 
     private Set<String> readViewNameFromLocalFile() {
         try {
-            File file = new File("/Users/david/study-code/APT-Sample/viewList.txt");
+            File file = new File(VIEW_LST_PATH);
             Properties properties = new Properties();
             properties.load(new FileInputStream(file));
             return properties.stringPropertyNames();
