@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-class MyViewCreatorDelegate implements IMyViewCreator {
+public class MyViewCreatorDelegate implements IMyViewCreator {
     private IMyViewCreator mIMyViewCreator;
 
     @SuppressWarnings("all")
