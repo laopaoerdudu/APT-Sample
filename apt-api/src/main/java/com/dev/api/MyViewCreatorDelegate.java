@@ -27,7 +27,7 @@ public class MyViewCreatorDelegate implements IMyViewCreator {
 
     @Override
     public View createView(String name, Context context, AttributeSet attributeSet) {
-        if(mIMyViewCreator != null){
+        if (mIMyViewCreator != null) {
             return mIMyViewCreator.createView(name, context, attributeSet);
         }
         return null;
