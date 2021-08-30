@@ -10,8 +10,7 @@ public class MyViewCreatorDelegate implements IMyViewCreator {
     @SuppressWarnings("all")
     private MyViewCreatorDelegate() {
         try {
-            Class aClass = Class.forName("com.dev.apt_generation.MyViewCreatorImpl");
-            mIMyViewCreator = (IMyViewCreator) aClass.newInstance();
+            mIMyViewCreator = (IMyViewCreator) Class.forName("com.dev.MyViewCreatorImpl").newInstance();
         } catch (Throwable t) {
             t.printStackTrace();
         }

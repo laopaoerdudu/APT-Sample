@@ -42,7 +42,7 @@ public class MyViewCreatorProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-        Set<String> mViewNameSet = readViewNameFromLocalFile();
+        Set<String> mViewNameSet = readViewInfoFromLocalFile();
 
         if (mViewNameSet == null || mViewNameSet.isEmpty()) {
             return false;
@@ -108,7 +108,7 @@ public class MyViewCreatorProcessor extends AbstractProcessor {
         }
     }
 
-    private Set<String> readViewNameFromLocalFile() {
+    private Set<String> readViewInfoFromLocalFile() {
         try {
             File file = new File(VIEW_LST_PATH);
             Properties properties = new Properties();

@@ -50,8 +50,6 @@ public class MyViewCreatorImpl implements IMyViewCreator {
 
 >通过APT（Annotation Processing Tool）技术，即注解处理器，在编译时扫描并处理注解，注解处理器最终生成处理注解逻辑的.java文件。
 
-
- 
 #### Notes
 
 Java 源文件实际上是一种结构体语言，源代码的每一个部分都对应了一个特定类型的 Element

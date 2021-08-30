@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MyButterKnife.bind(this);
-        mTextView.setText("erdai666");
+        mTextView.setText("david 666");
         MyAptAPI.init();
     }
 }

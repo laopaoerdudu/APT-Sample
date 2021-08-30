@@ -7,7 +7,7 @@ public class MyAptAPI {
     @SuppressWarnings("all")
     public static void init() {
         try {
-            Class kClass = Class.forName("com.dev.apt_generation.HelloWorld");
+            Class kClass = Class.forName("com.dev.HelloWorld");
             Constructor declaredConstructor = kClass.getDeclaredConstructor();
             Object o = declaredConstructor.newInstance();
             Method test = kClass.getDeclaredMethod("test", String.class);
