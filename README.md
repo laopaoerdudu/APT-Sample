@@ -46,6 +46,10 @@ public class MyViewCreatorImpl implements IMyViewCreator {
 }
 ```
 
+### 原理
+
+>通过APT（Annotation Processing Tool）技术，即注解处理器，在编译时扫描并处理注解，注解处理器最终生成处理注解逻辑的.java文件。
+
 
  
 #### Notes
