@@ -34,11 +34,14 @@ public class MyBindingProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         for (Element element : roundEnv.getRootElements()) {
+
             // Retrieve the package name of the class
             String packageStr = element.getEnclosingElement().toString();
+            System.out.println("MyBindingProcessor packageStr -> " + packageStr);
 
             // Retrieve the name of the class
             String classStr = element.getSimpleName().toString();
+            System.out.println("MyBindingProcessor classStr -> " + classStr);
 
             ClassName className = ClassName.get(packageStr, classStr + "Binding");
 

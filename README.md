@@ -69,5 +69,3 @@ public class AptAnnotationProcessor extends AbstractProcessor {
 ```
 
 [Javapoet](https://github.com/square/javapoet)
-
-[参考：](https://juejin.cn/post/6978500975770206239)
